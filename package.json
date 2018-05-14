@@ -1,0 +1,38 @@
+{
+  "name": "igarassu-react-api-node",
+  "version": "0.0.1",
+  "description": "Api and Web page from Igarassu app",
+  "main": "index.js",
+  "repository": "https://www.github.com/ribamarsantos/igarassu-react-api-node",
+  "author": "Ribamar Santos <ribamaar@gmail.com> (http://ribamarsantos.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ribamarsantos/igarassu-react-api-node/issues"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "react",
+    "redux",
+    "redux-thunk"
+  ],
+  "scripts": {
+    "start": "node app.js",
+    "dev-front": "cd front && npm install && yarn start",
+    "dev-server": "nodemon app.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn dev-server\" \"yarn dev-front\"",
+    "prod-server": "node app.js",
+    "prod-front": "cd front && yarn build ",
+    "prod": " concurrently --kill-others-on-fail \"yarn prod-server\" \" yarn prod-front\"",
+    "heroku-postbuild": "cd front  && npm install && yarn run build"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.15.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "react-router-dom": "^4.2.2"
+  }
+}
