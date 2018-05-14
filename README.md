@@ -1,4 +1,4 @@
-### :hash: React + Express + Heroku = myAwesome Project
+### :hash: Igarassu API and Request Providers Page
 
 ## :hash:What you will need:
 - :point_right: Heroku account
@@ -7,7 +7,7 @@
 - :point_right: npm/yarn
 
 ## :hash: Steps 
-- :point_right: `$ git clone https://github.com/ribamarsantos/my-app-express-and-react.git`
+- :point_right: `$ git clone https://github.com/ribamarsantos/igarassu-react-api-node.git`
 - :point_right: `$ yarn install`
 ### Choose one option:
 #### Development:
