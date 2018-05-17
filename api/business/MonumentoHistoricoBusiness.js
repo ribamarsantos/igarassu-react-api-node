@@ -1,26 +1,26 @@
 const MonumentoHistoricoRepository = require('../models/MonumentoHistoricoRepository')
 
-function MonumentoHistoricoBusiness(){
+function MonumentoHistoricoBusiness() {
     this.persistence = new MonumentoHistoricoRepository();
 }
 
-MonumentoHistoricoBusiness.prototype.create = async function(monumentohistorico) {
+MonumentoHistoricoBusiness.prototype.create = async function (monumentohistorico) {
     // 
-    if(monumentohistorico.title.length === 0 ) {
+    if (monumentohistorico.title.length === 0) {
         throw new Error('Título não informado')
     }
 
     try {
-       return  await this.persistence.create(monumentohistorico)
+        return await this.persistence.create(monumentohistorico)
     } catch (error) {
         throw error;
     }
-    
+
 }
 
-MonumentoHistoricoBusiness.prototype.getAll = async function () {
+MonumentoHistoricoBusiness.prototype.getAll = async function (page) {
     try {
-        return await this.persistence.getAll();
+        return await this.persistence.getAll(page);
     } catch (error) {
         throw error;
     }
