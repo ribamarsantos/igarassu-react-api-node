@@ -4,15 +4,21 @@ const MonumentoHistoricoBusiness = require('../business/MonumentoHistoricoBusine
 const monumentoHistorio = new MonumentoHistoricoBusiness()
 const monumentoHistoricoRouter = express.Router()
 
-monumentoHistoricoRouter.post('/create', (req, res) => {
-    monumentoHistorio.create(req.body)
-        .then(result => res.status(201).json({ result }))
-        .catch(err => res.status(400).json({ error: err.message }))
+monumentoHistoricoRouter.post('/create', async (req, res, next) => {
+    try {
+        const result = await monumentoHistorio.create(req.body)
+        res.json(result)
+    } catch (error) {
+        next(error)
+    }
 })
 
-monumentoHistoricoRouter.get('/getAll', (req, res) => {
-    monumentoHistorio.getAll(req.query.page)
-        .then(result => res.status(200).json({ result }))
-        .catch(err => res.status(400).json({ error: err.message }))
+monumentoHistoricoRouter.get('/getAll', async (req, res, next) => {
+    try {
+        const monumentos = await monumentoHistorio.getAll(req.query.page)
+        res.json(monumentos)
+    } catch (error) {
+        next(error)
+    }
 })
 module.exports = monumentoHistoricoRouter;
