@@ -13,10 +13,17 @@ MonumentoHistoricoBusiness.prototype.create = async function(monumentohistorico)
     try {
        return  await this.persistence.create(monumentohistorico)
     } catch (error) {
-        console.log(error)
         throw error;
     }
     
+}
+
+MonumentoHistoricoBusiness.prototype.getAll = async function () {
+    try {
+        return await this.persistence.getAll();
+    } catch (error) {
+        throw error;
+    }
 }
 
 module.exports = MonumentoHistoricoBusiness;

@@ -29,9 +29,21 @@ function MonumentoHistoricoRepository() {
 }
 
 MonumentoHistoricoRepository.prototype.create = async function (monumentohistorico) {
-    await mongoose.model(MODEL_NAME).create(monumentohistorico, (err, result) => {
-        if(err) throw new Error(err);
-    })
+    return await mongoose.model(MODEL_NAME)
+                         .create(monumentohistorico)
+                         .then(payload => payload)
+                         .catch( error => error )
+}
+
+MonumentoHistoricoRepository.prototype.getAll = async function( page = 1) {
+    return await mongoose.model(MODEL_NAME)
+                  .find()
+                  .sort({ title: 'asc'})
+                  .limit(20)
+                  .exec()
+                  .then(payload => payload)
+                  .catch(error => error)
+                         
 }
 
 module.exports =  MonumentoHistoricoRepository;
