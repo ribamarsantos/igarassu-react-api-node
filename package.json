@@ -2,7 +2,7 @@
   "name": "igarassu-react-api-node",
   "version": "0.0.1",
   "description": "Api and Web page from Igarassu app",
-  "main": "app.js",
+  "main": "server.js",
   "repository": "https://www.github.com/ribamarsantos/igarassu-react-api-node",
   "author": "Ribamar Santos <ribamaar@gmail.com> (http://ribamarsantos.github.io/)",
   "license": "MIT",
@@ -18,24 +18,30 @@
     "redux-thunk"
   ],
   "scripts": {
-    "start": " node app.js",
+    "start": " node server.js",
+    "test": " jest --runInBand",
     "dev-front": "cd front && npm install && yarn start",
-    "dev-server": "nodemon app.js",
+    "dev-server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn dev-server\" \"yarn dev-front\"",
-    "prod-server": "node app.js",
+    "prod-server": "node server.js",
     "prod-front": "cd front && yarn build ",
     "prod": " concurrently --kill-others-on-fail \"yarn prod-server\" \" yarn prod-front\"",
     "heroku-postbuild": "cd front  && npm install && yarn run build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "concurrently": "^3.5.1",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.4",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "superagent": "^3.8.3",
+    "supertest": "^3.1.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "mongoose": "^5.1.1",
